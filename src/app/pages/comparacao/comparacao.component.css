@@ -154,6 +154,6 @@ tr:nth-child(even) {
 }
 
 .custom-menu-position {
-  top: 20px;     /* desce um pouco */
-  left: 20px;    /* afasta da esquerda */
+  top: 20px;     
+  left: 20px;    
 }
