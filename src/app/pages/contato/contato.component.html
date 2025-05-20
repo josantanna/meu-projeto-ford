@@ -1,0 +1,104 @@
+<div class="container-fluid h-100 position-relative">
+  <!-- Menu no topo esquerdo -->
+  <div class="position-absolute top-20 start-20 z-3" #menuContainer>
+    <div class="dropdown position-relative">
+      <!-- Substitua o botão antigo por este -->
+    <button class="btn btn-ford dropdown-toggle px-3 py-2 rounded" (click)="toggleMenu()">Menu</button>
+
+      <div class="dropdown-menu dropdown-menu-start show" *ngIf="menuAberto">
+        <a class="dropdown-item" (click)="retornarHome()">Home</a>
+        <a class="dropdown-item" (click)="retornarLogin()">Logout</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="row h-100">
+    <div class="col-md-6 p-0 h-100 carrossel-container">      
+    </div>
+    <div 
+       class="carrossel-slide" 
+       *ngFor="let image of images; let i = index" 
+       [class.active]="currentIndex === i">
+      <img [src]="getImagePath(image)" class="carrossel-image" [alt]="'Imagem ' + i">
+    </div>
+      
+    <div class="col-md-6 d-flex flex-column h-100 position-relative">
+      <div class="text-end p-3">
+        <img src="assets/img/ford.png" alt="Ford Logo" style="width: 100px;">
+      </div>
+
+      <div class="d-flex justify-content-center align-items-center flex-grow-1">
+        <form class="contact-form p-4" (ngSubmit)="enviarContato()" #contatoForm="ngForm">
+          <h2 class="text-center mb-4">Entre em Contato</h2>
+
+          <div class="mb-2">
+            <label class="form-label">Nome Completo*</label>
+            <input type="text" class="form-control" required [(ngModel)]="formData.nome" name="nome" #nome="ngModel">
+            <div *ngIf="nome.invalid && (nome.dirty || nome.touched)" class="text-danger">
+              <small *ngIf="nome.errors?.['required']">Nome completo é obrigatório</small>
+            </div>
+          </div>
+
+          <div class="mb-2">
+            <label class="form-label">E-mail*</label>
+            <input type="email" class="form-control" required [(ngModel)]="formData.email" name="email" #email="ngModel">
+            <div *ngIf="email.invalid && (email.dirty || email.touched)" class="text-danger">
+              <small *ngIf="email.errors?.['required']">E-mail é obrigatório</small>
+              <small *ngIf="email.errors?.['email']">Por favor, insira um e-mail válido</small>
+            </div>
+          </div>
+
+          <div class="mb-2">
+            <label class="form-label">Telefone</label>
+            <input type="tel" class="form-control" [(ngModel)]="formData.telefone" name="telefone">
+          </div>
+
+          <div class="mb-2">
+            <select class="form-select" required [(ngModel)]="formData.tipoContato" name="tipoContato" #tipoContato="ngModel">
+              <option value="" disabled selected>Selecione o tipo de contato*</option>
+              <option value="elogio">Elogio</option>
+              <option value="reclamacao">Reclamação</option>
+              <option value="solicitacao">Solicitação</option>
+            </select>
+            <div *ngIf="tipoContato.invalid && (tipoContato.dirty || tipoContato.touched)" class="text-danger">
+              <small *ngIf="tipoContato.errors?.['required']">Tipo de contato é obrigatório</small>
+            </div>
+          </div>
+
+          <div class="mb-2">
+            <label class="form-label">Mensagem*</label>
+            <textarea class="form-control" required rows="4" [(ngModel)]="formData.mensagem" name="mensagem" #mensagem="ngModel"></textarea>
+            <div *ngIf="mensagem.invalid && (mensagem.dirty || mensagem.touched)" class="text-danger">
+              <small *ngIf="mensagem.errors?.['required']">Mensagem é obrigatória</small>
+            </div>
+          </div>
+
+          <div class="mb-2 form-check">
+            <input type="checkbox" class="form-check-input" [(ngModel)]="formData.newsletter" name="newsletter">
+            <label class="form-check-label">Desejo receber novidades por e-mail</label>
+          </div>
+
+          <div class="mb-2 border rounded p-2 small text-muted">
+  <p>
+    Os dados serão mantidos em nossa base de dados, só enquanto for desejado por você.
+    <span class="text-danger">A qualquer momento</span>, será possível editar ou remover tais dados.
+    Para mais informações clique
+    <a href="https://www.ford.com.br/politica-de-privacidade/" target="_blank">aqui</a>.
+  </p>
+</div>
+
+<div class="mb-2 form-check">
+  <input type="checkbox" class="form-check-input" [(ngModel)]="formData.lgpd" name="lgpd" required #lgpd="ngModel">
+  <label class="form-check-label">Sim. Li e concordo com os Termos e Condições.</label>
+  <div *ngIf="lgpd.invalid && (lgpd.dirty || lgpd.touched)" class="text-danger">
+    <small>Você deve aceitar os termos para continuar.</small>
+  </div>
+</div>
+
+
+          <button type="submit" class="btn btn-primary w-100" [disabled]="contatoForm.invalid">Enviar</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

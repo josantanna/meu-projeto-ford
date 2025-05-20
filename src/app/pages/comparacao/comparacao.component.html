@@ -1,0 +1,159 @@
+<div class="position-relative bg-white min-vh-100">  
+  <div class="position-absolute custom-menu-position z-3" #menu>
+  <div class="dropdown position-relative">
+    <button class="btn btn-secondary dropdown-toggle" (click)="toggleMenu()">Menu</button>
+    <div class="dropdown-menu dropdown-menu-start show" *ngIf="menuAberto">
+      <a class="dropdown-item" (click)="retornarHome()">Home</a>
+      <a class="dropdown-item" (click)="retornarLogin()">Logout</a>
+    </div>
+  </div>
+</div>
+
+
+  <main class="container pt-5 pb-4">
+    <div class="text-center mb-4">
+      <h2>Comparação de Modelos</h2>
+      <p class="lead">Selecione dois veículos para comparar</p>
+    </div>
+
+    <div class="mb-4">
+      <iframe 
+        style="display: block; margin-bottom: 30px; margin-left: auto; margin-right: auto; width: 100%; height: 500px;" 
+        src="https://www.youtube-nocookie.com/embed/vQsryuNmsL0?controls=0&autoplay=1&modestbranding=0&loop=1&mute=1&rel=0&hd=1" 
+        title="YouTube video player" 
+        frameborder="0" 
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+        allowfullscreen>
+      </iframe>
+    </div>
+
+    <div class="model-cars-container">
+      <ul class="modelcars">
+        <li *ngFor="let car of cars">
+          <img [src]="car.image" class="photocar">
+          <div class="infocar">
+            <div>
+              <input 
+                type="checkbox" 
+                [value]="car.nome" 
+                class="checkbox" 
+                (change)="setCarToCompare($event, car)">
+            </div>
+            <div class="info">
+              <span class="textmodel">{{ car.nome }}</span>
+              <span class="textprice">Preço Sugerido: R$ {{ car.preco.toLocaleString('pt-BR') }}</span>
+            </div>
+            <div>
+              <img src="assets/img/info.png" alt="Informações">
+            </div>
+          </div>
+        </li>
+      </ul>
+    </div>
+
+    <div class="text-center pb-4">
+      <button 
+        type="button" 
+        class="btn btn-primary" 
+        style="height: 40px; width: 200px;" 
+        (click)="showCompare()">
+        Comparar Carros
+      </button>
+    </div>
+  </main>
+  
+  <footer class="py-4 bg-primary text-white">
+    <div class="container">
+      <div class="d-flex justify-content-center align-items-center gap-4">
+        <span class="fw-bold">Redes Sociais:</span>
+        <a href="https://www.facebook.com/FordBrasil/" title="Facebook" target="_blank" class="text-white">
+          <img src="assets/img/facebook-50.png" alt="Facebook" style="width: 32px; filter: brightness(0) invert(1);">
+        </a>
+        <a href="https://www.youtube.com/@ford" target="_blank" title="YouTube" class="text-white">
+          <img src="assets/img/youtube-squared-50.png" alt="YouTube" style="width: 32px; filter: brightness(0) invert(1);">
+        </a>
+        <a href="https://www.instagram.com/ford/" target="_blank" title="Instagram" class="text-white">
+          <img src="assets/img/instagram-logo-50.png" alt="Instagram" style="width: 32px; filter: brightness(0) invert(1);">
+        </a>
+      </div>
+    </div>
+  </footer>
+  
+  <div *ngIf="showComparison" class="compare-modal">
+    <div class="compare-content">
+      <table class="table table-striped">
+        <tbody>
+          <tr>
+            <td>&nbsp;</td>
+            <td id="compare_image_0">
+              <img [src]="carArr[0].image" style="max-width: 150px; height: auto; display: block; margin: 0 auto;">
+            </td>
+            <td id="compare_image_1">
+              <img [src]="carArr[1].image" style="max-width: 150px; height: auto; display: block; margin: 0 auto;">
+            </td>
+          </tr>
+          <tr>
+            <td>Modelo</td>
+            <td id="compare_modelo_0">{{ carArr[0].nome }}</td>
+            <td id="compare_modelo_1">{{ carArr[1].nome }}</td>
+          </tr>
+          <tr>
+            <td>Altura da caçamba (mm)</td>
+            <td id="compare_alturacacamba_0">{{ carArr[0].alturaCacamba }}</td>
+            <td id="compare_alturacacamba_1">{{ carArr[1].alturaCacamba }}</td>
+          </tr>
+          <tr>
+            <td>Altura do veículo (mm)</td>
+            <td id="compare_alturaveiculo_0">{{ carArr[0].alturaVeiculo }}</td>
+            <td id="compare_alturaveiculo_1">{{ carArr[1].alturaVeiculo }}</td>
+          </tr>
+          <tr>
+            <td>Altura livre do solo (mm)</td>
+            <td id="compare_alturasolo_0">{{ carArr[0].alturaSolo }}</td>
+            <td id="compare_alturasolo_1">{{ carArr[1].alturaSolo }}</td>
+          </tr>
+          <tr>
+            <td>Capacidade de carga (Kg)</td>
+            <td id="compare_capacidadecarga_0">{{ carArr[0].capacidadeCarga }}</td>
+            <td id="compare_capacidadecarga_1">{{ carArr[1].capacidadeCarga }}</td>
+          </tr>
+          <tr>
+            <td>Motor</td>
+            <td id="compare_motor_0">{{ carArr[0].motor }}</td>
+            <td id="compare_motor_1">{{ carArr[1].motor }}</td>
+          </tr>
+          <tr>
+            <td>Potência (cv)</td>
+            <td id="compare_potencia_0">{{ carArr[0].potencia }}</td>
+            <td id="compare_potencia_1">{{ carArr[1].potencia }}</td>
+          </tr>
+          <tr>
+            <td>Volume de caçamba (L)</td>
+            <td id="compare_volumecacamba_0">{{ carArr[0].volumeCacamba }}</td>
+            <td id="compare_volumecacamba_1">{{ carArr[1].volumeCacamba }}</td>
+          </tr>
+          <tr>
+            <td>Roda</td>
+            <td id="compare_roda_0">{{ carArr[0].roda }}</td>
+            <td id="compare_roda_1">{{ carArr[1].roda }}</td>
+          </tr>
+          <tr>
+            <td>Preço</td>
+            <td id="compare_preco_0">R$ {{ carArr[0].preco.toLocaleString('pt-BR') }}</td>
+            <td id="compare_preco_1">R$ {{ carArr[1].preco.toLocaleString('pt-BR') }}</td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="text-center mt-3">
+        <button 
+          type="button" 
+          class="btn btn-secondary" 
+          style="height: 40px; width: 200px;" 
+          (click)="hideCompare()">
+          Fechar
+        </button>
+      </div>
+    </div>
+    <div class="overlay" (click)="hideCompare()"></div>
+  </div>
+</div>

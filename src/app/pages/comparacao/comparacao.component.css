@@ -1,0 +1,159 @@
+.modelcars {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    margin-bottom: 40px;
+    padding: 0 10px;
+    list-style: none;
+}
+
+.modelcars li {
+    flex: 0 0 300px;
+    text-align: left;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    padding: 15px;
+    transition: transform 0.3s ease;
+}
+
+.modelcars li:hover {
+    transform: translateY(-5px);
+}
+
+.photocar {
+    display: block;
+    width: 100%;
+    height: auto;
+    border-radius: 4px;
+    margin-bottom: 10px;
+}
+
+.checkbox {
+    width: 30px;
+    height: 30px;
+    border: 1px solid #1b357e;
+    cursor: pointer;
+}
+
+.infocar div {
+    display: inline-block;
+}
+
+.info {
+    width: calc(100% - 80px);
+    vertical-align: top;
+    padding-left: 10px;
+}
+
+.textmodel {
+    display: block;
+    text-align: left;
+    font-size: 14px;
+    color: #1351d8;
+    font-weight: 600;
+    margin-bottom: 5px;
+}
+
+.textprice {
+    display: block;
+    text-align: left;
+    font-size: 12px;
+    color: #666;
+}
+
+.compare-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.compare-content {
+    position: relative;
+    width: 90vw;
+    max-width: 800px;
+    min-width: 300px;
+    max-height: 80vh;
+    background: #fff;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+    overflow: auto;
+    z-index: 1001;
+}
+
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.5);
+    z-index: 999;
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+    margin: 0 auto;
+    font-size: 14px;
+}
+
+th, td {
+    text-align: left;
+    padding: 12px 8px;
+    border-bottom: 1px solid #ddd;
+}
+
+td:nth-child(1) {  
+    font-weight: 700;
+    width: 30%;
+}
+
+tr:nth-child(even) {
+    background-color: #f8f9fa;
+}
+
+.redesociais {
+    font-weight: 600;
+    color: #333;
+}
+
+@media (max-width: 768px) {
+    .modelcars li {
+        flex: 0 0 100%;
+    }
+    
+    .compare-content {
+        width: 95vw;
+        padding: 15px;
+    }
+    
+    table {
+        font-size: 12px;
+    }
+    
+    td, th {
+        padding: 8px 4px;
+    }
+    
+    td:nth-child(1) {
+        width: 40%;
+    }
+}
+
+.dropdown-item {
+  cursor: pointer;
+}
+
+.custom-menu-position {
+  top: 20px;     /* desce um pouco */
+  left: 20px;    /* afasta da esquerda */
+}
