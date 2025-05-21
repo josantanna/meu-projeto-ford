@@ -21,7 +21,7 @@ export class LoginComponent {
     if (this.username === 'admin' && this.password === '123456') {
       this.router.navigate(['/home']);
     } else {
-      alert('O e-mail ou senha inválidos');
+      alert('E-mail ou senha inválidos');
     }
   }
 }

@@ -121,7 +121,7 @@ export class ComparacaoComponent {
 
   showCompare(): void {
     if (this.carArr.length < 2) {
-      alert('Precisa marcar 2 carros para apresentar a comparação');
+      alert('É necessário marcar 2 veículos para apresentar a comparação');
       return;
     }
     this.showComparison = true;
