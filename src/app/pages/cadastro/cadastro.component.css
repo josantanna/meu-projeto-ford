@@ -132,3 +132,27 @@ input.ng-invalid.ng-touched {
     height: 40px !important;
   }
 }
+
+@media (max-width: 992px) {
+  .d-flex.flex-column.flex-lg-row {
+    flex-direction: column !important;
+  }
+  
+  .w-50, .w-100 {
+    width: 100% !important;
+  }
+  
+  .d-none.d-lg-flex {
+    display: none !important;
+  }
+}
+
+@media (max-width: 576px) {
+  .card {
+    padding: 1.5rem !important;
+  }
+  
+  .d-flex.justify-content-end.p-3.p-lg-5 {
+    padding: 1rem !important;
+  }
+}

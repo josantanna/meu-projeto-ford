@@ -96,4 +96,33 @@
     /* background-color: red; */
   }
 
+  @media (max-width: 992px) {
+  .d-flex.flex-row.flex-nowrap {
+    flex-wrap: wrap !important;
+  }
+  
+  .dash-card {
+    width: 100% !important;
+    margin-bottom: 1rem;
+  }
+  
+  .table-responsive {
+    overflow-x: auto;
+  }
+}
+
+@media (max-width: 768px) {
+  .dashboard-container {
+    padding: 1rem !important;
+  }
+  
+  .search-card, .data-table {
+    padding: 1rem !important;
+  }
+  
+  img.img-fluid {
+    max-width: 100% !important;
+  }
+}
+
  

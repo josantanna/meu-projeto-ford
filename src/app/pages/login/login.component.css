@@ -8,3 +8,34 @@ body {
 html, body {
   height: 100%;
 }
+
+@media (max-width: 992px) {
+  .d-flex.flex-grow-1 {
+    flex-direction: column;
+  }
+  
+  .d-flex.flex-grow-1 > div {
+    width: 100% !important;
+  }
+  
+  .d-flex.align-items-center.justify-content-start {
+    justify-content: center !important;
+    padding: 2rem !important;
+  }
+  
+  .card {
+    width: 100% !important;
+    max-width: 400px;
+    margin: 0 auto;
+  }
+}
+
+@media (max-width: 576px) {
+  .d-flex.justify-content-end.p-5 {
+    padding: 1rem !important;
+  }
+  
+  .card {
+    padding: 1.5rem !important;
+  }
+}
