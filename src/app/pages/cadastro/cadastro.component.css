@@ -63,7 +63,6 @@ small {
   }
 }
 
-/* Estilos gerais */
 .ford-logo {
   height: 40px;
   width: auto;
@@ -75,20 +74,17 @@ small {
   object-fit: contain;
 }
 
-/* Placeholders */
 ::placeholder {
   color: #6c757d;
   opacity: 0.7;
 }
 
-/* Mensagens de erro */
 .text-danger {
   font-size: 0.8rem;
   margin-top: 0.25rem;
   display: block;
 }
 
-/* Responsividade */
 @media (max-width: 992px) {
   .ford-logo {
     height: 35px;
@@ -105,7 +101,6 @@ small {
   }
 }
 
-/* Estilo para mensagem de sucesso */
 .alert-success {
   background-color: #d1e7dd;
   color: #0f5132;
@@ -115,12 +110,10 @@ small {
   margin-bottom: 20px;
 }
 
-/* Melhoria nos inputs inválidos */
 input.ng-invalid.ng-touched {
   border-color: #dc3545;
 }
 
-/* Melhoria na exibição das mensagens de erro */
 .text-danger {
   font-size: 0.8rem;
   color: #dc3545;
@@ -128,14 +121,12 @@ input.ng-invalid.ng-touched {
   display: block;
 }
 
-/* Garante que a imagem do carro não ultrapasse o container */
 .vehicle-image {
   max-height: 70vh;
   width: 100%;
   object-fit: contain;
 }
 
-/* Responsividade para telas menores */
 @media (max-width: 992px) {
   .ford-logo {
     height: 40px !important;
